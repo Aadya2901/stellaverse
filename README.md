@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # StellaVerse
 # 🌌 StellaVerse — A Space-Themed Exploration Website
 
@@ -118,3 +119,6 @@ Feel free to use it for personal, educational, or collaborative purposes.
 “Somewhere, something incredible is waiting to be known.” – Carl Sagan
 
 Thank you for exploring StellaVerse. We hope it inspires your inner astronaut 🚀
+=======
+# stellaverse
+>>>>>>> df3b27da046ad85b92bd80f65e875678f360897d
