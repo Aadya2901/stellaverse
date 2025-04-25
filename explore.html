@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore the Galaxy</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:#010114; color:#eee; font-family:'Space Grotesk',sans-serif; overflow-x:hidden; }
+
+    /* Star background */
+    .stars, .stars2, .stars3 {
+      position:fixed; width:100%; height:100%; background-repeat:repeat; animation:move 50s linear infinite;
+    }
+
+    /* Different star layers, each with different background images and speeds */
+    .stars {
+      background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* or any star background image */
+      animation: move 100s linear infinite;
+    }
+    .stars2 {
+      background-image: url('https://www.transparenttextures.com/patterns/white-dots.png'); /* slightly different texture */
+      animation: move2 60s linear infinite;
+    }
+    .stars3 {
+      background-image: url('https://www.transparenttextures.com/patterns/snowflakes.png'); /* another variation */
+      animation: move3 120s linear infinite;
+    }
+
+    /* Starfield background moving keyframes */
+    @keyframes move {
+      from { background-position: 0 0; }
+      to { background-position: -5000px -2500px; }
+    }
+
+    @keyframes move2 {
+      from { background-position: 0 0; }
+      to { background-position: 5000px 2500px; }
+    }
+
+    @keyframes move3 {
+      from { background-position: 0 0; }
+      to { background-position: -7500px -3500px; }
+    }
+
+    /* Styling for other elements */
+    header { text-align:center; padding:2rem; font-size:3rem; color:#7f5af0; text-shadow:0 0 10px #7f5af0; }
+
+    /* Countdown */
+    .countdown { display:flex; justify-content:center; gap:2rem; padding:1rem; font-size:1.5rem; }
+    .countdown div { text-align:center; }
+    .countdown div span { display:block; font-size:2rem; color:#ff87ab; }
+    
+    /* Solar System */
+    .solar-system { position:relative; width:80vmin; height:80vmin; margin:2rem auto; }
+    .sun {
+      position:absolute; top:50%; left:50%; width:5vmin; height:5vmin;
+      margin:-2.5vmin; background:radial-gradient(circle,#ffb347,#ffcc33);
+      border-radius:50%; box-shadow:0 0 30px #ffcc33;
+    }
+    .orbit { position:absolute; top:50%; left:50%; width:100%; height:100%; transform-origin:center center; }
+    .planet {
+      position:absolute; top:50%; left:50%; width:2vmin; height:2vmin;
+      margin:-1vmin; background:#00eaff; border-radius:50%; box-shadow:0 0 10px #00eaff;
+    }
+
+    /* Sections */
+    .section { padding:3rem 10rem; max-width:1000px; margin:0 auto; }
+    .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:3rem; }
+    .card { background:rgba(127,90,255,0.1); padding:2rem; border-radius:12px;
+      box-shadow:0 0 20px rgba(127,90,255,0.5); transition:transform .3s; }
+    .card:hover { transform:translateY(-10px) scale(1.03); }
+    .card h3 { margin-bottom:.5rem; color:#7f5af0; }
+    .card p { color:#ccc; line-height:1.4; }
+    
+    /* Audio Background */
+    audio {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .back-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  color: #fff;
+  background: rgba(127, 90, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(127,90,255,0.5);
+  z-index: 999;
+  transition: background 0.3s, transform 0.3s;
+}
+.back-btn:hover {
+  background: rgba(127, 90, 255, 0.5);
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <a href="javascript:history.back()" class="back-btn">&#8592; Back</a>
+
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+
+  <br>
+  <br>
+  <header>Welcome to the Galaxy Explorer</header>
+
+  <!-- Countdown Timer -->
+  <div class="countdown" data-aos="fade-down">
+    <div><span id="days">00</span>Days</div>
+    <div><span id="hours">00</span>Hours</div>
+    <div><span id="mins">00</span>Minutes</div>
+    <div><span id="secs">00</span>Seconds</div>
+  </div>
+
+  <!-- Feature Sections -->
+  <div class="section" data-aos="fade-up">
+    <h2>Timeline</h2>
+    <br>
+    <div class="cards">
+      <a href="timeline (1).html" class="card"><h3>1962</h3><p>1962 - INCOSPAR formed by the DAE.</p></a>
+      <a href="timeline (1).html" class="card"><h3>1969</h3><p>15 August 1969 ISRO formed under DAE.</p></a>
+    </div>
+  </div>
+  <div class="section" data-aos="fade-up" data-aos-delay="100">
+    <h2>Discoveries</h2>
+    <br>
+    <div class="cards">
+      <a href="discovery.html" class="card"><h3>AstroSat </h3><p>Detected extreme-UV light from a galaxy.</p></a>
+      <a href="discovery.html" class="card"><h3>Black Hole</h3><p>AstroSat observations helped shed light on the physics of gas accretion and relativistic jet formation around black holes.</p></a>
+    </div>
+  </div>
+  <div class="section" data-aos="fade-up" data-aos-delay="200">
+    <h2>Missions</h2>
+    <br>
+    <div class="cards">
+      <a href="mission.html" class="card"><h3>Gaganyaan</h3><p>India's first crewed space mission, with plans for future missions.</p></a>
+      <a href="mission.html" class="card"><h3>Aditya-L1</h3><p>mission studying the sun.</p></a>
+    </div>
+  </div>
+
+
+  <!-- <div class="footer" data-aos="fade-up">&copy; 2025 Galaxy Explorer</div> -->
+
+  <!-- Ambient Space Audio -->
+  <!-- <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:800, once:true });
+
+    // Countdown
+    const launchDate = new Date('2025-12-25T00:00:00').getTime();
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = launchDate - now;
+      if(diff < 0) return;
+      document.getElementById('days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+      document.getElementById('hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      document.getElementById('mins').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      document.getElementById('secs').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>

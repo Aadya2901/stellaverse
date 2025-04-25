@@ -1,0 +1,333 @@
+/* Starfield background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+#starfield-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background: black;
+}
+
+
+@keyframes twinkle {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+/* Title */
+.page-title {
+  margin-top: 0;
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 2rem;
+  color: rgb(113, 230, 230);
+  align-items: center;
+}
+p{
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.7rem;
+}
+.heading{
+    background-color: transparent;
+    height: 40rem;
+    margin: 2rem 2rem 1rem 2rem;
+    border: 3px solid rgba(255, 255, 255, 0.281);
+    border-radius: 3rem;
+   
+}
+
+/* Grid */
+.missions-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding: 3rem;
+}
+
+.mission-card {
+  background: transparent;
+  backdrop-filter: blur(5px);
+  border: 3px solid rgba(255, 255, 255, 0.712);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 2px 2px 18px  #f42ecdc8;
+}
+
+/* Animation on scroll */
+.mission-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.mission-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 2px 2px 30px #397effe0;
+}
+
+.mission-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.mission-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.mission-title {
+  font-size: 1.2rem;
+  color: #0ff;
+  margin-bottom: 0.5rem;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding: 1rem; /* prevents overflow cut-off on tiny screens */
+    overflow-y: auto;
+  }
+  
+  .modal-content {
+    background: #111;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 600px;
+    color: #fff;
+    position: relative;
+    animation: slideUp 0.5s ease;
+    box-shadow: 0 0 20px #0ff5, 0 0 40px rgba(0, 208, 255, 0.669);
+    max-height: 82vh;
+    overflow-y: auto;
+  }
+  .modal-content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Text */
+  #modal-title {
+    color: white;
+    text-shadow: 4px 4px 4px #088df9;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  #modal-date,
+  #modal-crew,
+  #modal-desc {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Image */
+  .modal-img {
+    width: 100%;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #0ff;
+  }
+  
+  /* Hidden state */
+  .hidden {
+    display: none;
+  }
+  
+  /* Animation */
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Responsive font sizing */
+  @media (max-width: 480px) {
+    #modal-title {
+      font-size: 2rem;
+    }
+  
+    .modal-content {
+      padding: 1.2rem;
+    }
+  }
+  
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .missions-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .missions-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/*Loading page Animation*/
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+.no-scroll {
+    overflow: hidden;
+  }
+  
+
+/* Center the planet */
+.load-wrapper{
+    position:fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    background: url(starry-night.png);
+    background-size: 100%;
+    overflow: hidden;
+    z-index: 9999;
+  }
+  
+  .loader {
+    display: block;
+    width: 125px;
+    height: 125px;
+    position: relative;
+    transform-style: preserve-3d;
+    border-radius: 50%;
+    background: #fcc96b;
+    background: rgb(252, 201, 107);
+    background: linear-gradient(
+      180deg,
+      rgba(252, 201, 107, 1) 0%,
+      rgba(252, 201, 107, 1) 15%,
+      rgba(247, 174, 1, 1) 15%,
+      rgba(247, 174, 1, 1) 19%,
+      rgba(252, 201, 107, 1) 19%,
+      rgba(252, 201, 107, 1) 22%,
+      rgba(247, 174, 1, 1) 22%,
+      rgba(247, 174, 1, 1) 28%,
+      rgba(252, 201, 107, 1) 28%,
+      rgba(252, 201, 107, 1) 31%,
+      rgba(252, 201, 107, 1) 33%,
+      rgba(252, 201, 107, 1) 36%,
+      rgba(247, 174, 1, 1) 36%,
+      rgba(247, 174, 1, 1) 48%,
+      rgba(252, 201, 107, 1) 48%,
+      rgba(252, 201, 107, 1) 55%,
+      rgba(247, 174, 1, 1) 55%,
+      rgba(247, 174, 1, 1) 66%,
+      rgba(252, 201, 107, 1) 66%,
+      rgba(252, 201, 107, 1) 70%,
+      rgba(247, 174, 1, 1) 70%,
+      rgba(247, 174, 1, 1) 73%,
+      rgba(252, 201, 107, 1) 73%,
+      rgba(252, 201, 107, 1) 82%,
+      rgba(247, 174, 1, 1) 82%,
+      rgba(247, 174, 1, 1) 86%,
+      rgba(252, 201, 107, 1) 86%
+    );
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.25),
+      inset 8px -4px 6px rgba(199, 128, 0, 0.5),
+      inset -8px 4px 8px rgba(255, 235, 199, 0.5),
+      inset 20px -5px 12px #f7ae01,
+      0 0 100px rgba(255, 255, 255, 0.35);
+    transform: rotateZ(-15deg);
+  }
+  
+  .loader::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 16px solid #7b6f42;
+    border-top-width: 0;
+    border-radius: 50%;
+    box-shadow: 0 -2px 0 #b1a693;
+    animation: rings1 0.8s infinite linear;
+  }
+  
+  .loader::after {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 8px solid #b1a693;
+    border-top-width: 0;
+    border-radius: 50%;
+    box-shadow: 0 -2px 0 #7b6f42;
+    animation: rings2 0.8s infinite linear;
+  }
+  
+  @keyframes rings1 {
+    0% {
+      transform: rotateX(65deg) rotateZ(0deg) scale(1.75);
+    }
+    100% {
+      transform: rotateX(65deg) rotateZ(360deg) scale(1.75);
+    }
+  }
+  
+  @keyframes rings2 {
+    0% {
+      transform: rotateX(65deg) rotateZ(0deg) scale(1.7);
+    }
+    100% {
+      transform: rotateX(65deg) rotateZ(360deg) scale(1.7);
+    }
+  }  
+ 
+  

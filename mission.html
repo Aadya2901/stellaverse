@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Missions</title>
+  <link rel="stylesheet" href="mission.css" />
+  <link rel="stylesheet" href="carousel.css" />
+</head>
+<body onload="myFunction()" class="no-scroll">
+  
+  <!-- Page Loading Animation -->
+   
+    <div id="loader-wrapper" class="load-wrapper">
+        <div class="loader"></div>
+    </div>
+  
+  <!-- Page Loading Animation - End  -->
+
+   <div id="body" style="display:none;">
+
+  <!-- carousel -->
+
+      <div class="carousel">
+          <div class="list">
+        
+            <div class="item" style="background-image: url(isro.webp);">
+              <div class="content">
+                <div class="title">ISRO</div>
+                <div class="name">India</div>
+                <div class="des">Established in 1969, the Indian Space Research Organisation (ISRO)
+                   is renowned for its cost-effectiveness and innovative approaches. 
+                   They've launched satellites for numerous countries, sent missions to Mars and the Moon, 
+                   and even developed their own reusable launch vehicle.</div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(nasa.webp);">
+              <div class="content">
+                <div class="title">NASA Administration</div>
+                <div class="name">United States of America</div>
+                <div class="des">Established in 1958, NASA started its operations as 
+                  the United States government agency tasked with spearheading the 
+                  nation's civilian space program, as well as conducting vital aeronautics
+                   and aerospace research</div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(cnsa.webp);">
+              <div class="content">
+                <div class="title">CNSA</div>
+                <div class="name">China</div>
+                <div class="des">Established in 1993, the China National Space Administration (CNSA)
+                   commands China's burgeoning space program, spanning space missions, satellite launches,
+                    and lunar exploration endeavours. </div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(roscosmos.webp);">
+              <div class="content">
+                <div class="title">ROSCOSMOS</div>
+                <div class="name">Russia</div>
+                <div class="des">Established in 1992, The Russian State Corporation for Space Activities, 
+                  commonly known as ROSCOSMOS, serves as the principal governmental body
+                   overseeing Russia's space science program and aerospace research initiatives. 
+                   It is also considered one of the best space agencies in the world.</div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(esa.webp);">
+              <div class="content">
+                <div class="title">ESA</div>
+                <div class="name">Europe</div>
+                <div class="des">This multinational powerhouse brings together 22 member states,
+                   pooling resources and expertise. Founded in 1975,
+                    the European Space Agency (ESA) boasts iconic missions like Rosetta's comet rendezvous,
+                     the Hipparcos space observatory mapping the Milky Way,
+                      and the ExoMars rover searching for life on Mars.</div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(jaxa.webp);">
+              <div class="content">
+                <div class="title">JAXA</div>
+                <div class="name">Japan</div>
+                <div class="des">Established in 2003, the Japan Aerospace Exploration Agency (JAXA)
+                   assumes the mantle of Japan's premier aerospace and space exploration entity, 
+                   dedicated to research, technology development, and satellite launches. </div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(cnes.webp);">
+              <div class="content">
+                <div class="title">CNES</div>
+                <div class="name">France</div>
+                <div class="des">The National Centre for Space Studies CNES (abbreviation of the French
+                   name ‘Centre National d'Études Spatiales’) is France's governmental space agency,
+                    founded in 1961. Since its inception, CNES has been a driving force in France's 
+                    space endeavors, contributing significantly to the European 
+                    space sector and international collaborations.</div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(dlr.webp);">
+              <div class="content">
+                <div class="title">DLR</div>
+                <div class="name">Germany</div>
+                <div class="des">Founded in 1989, the German Aerospace Center DLR 
+                  (abbreviation of the German name ‘Deutsches Zentrum für Luft- und Raumfahrt’) 
+                  boasts a diverse portfolio. They've contributed to major missions
+                   like Rosetta and ExoMars, developed the innovative Euromir space station module,
+                    and are pioneers in satellite technology.</div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(asi.webp);">
+              <div class="content">
+                <div class="title">ASI</div>
+                <div class="name">Italy</div>
+                <div class="des">Established in 1988, ASI (abbreviation of the Italian name 
+                  ‘Agenzia Spaziale Italiana’) has made significant contributions to European
+                   space endeavours. They've participated in missions like Cassini to Saturn, 
+                   Huygens to Titan, and Rosetta to a comet. </div>
+              </div>
+            </div>
+        
+            <div class="item" style="background-image: url(space-x.webp);">
+              <div class="content">
+                <div class="title">SpaceX</div>
+                <div class="name">Elon Musk</div>
+                <div class="des">While not a government agency, SpaceX deserves a special mention
+                   in the list of top 10 space agencies in the world. Founded in 2002 
+                   by entrepreneur Elon Musk, SpaceX stands at the forefront of commercial
+                    space exploration and aerospace technology development. </div>
+              </div>
+            </div>
+        
+          </div>
+        
+          <!--next prev button-->
+          <div class="arrows">
+            <button class="prev">
+              <i class="bi bi-arrow-left"></i>
+            </button>
+            <button class="next">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+        
+            <div class="slide-number"></div>
+          </div>
+        
+          <!-- time running -->
+          <div class="timeRunning"></div>
+        
+      </div>
+  <!-- cariusel end -->
+
+  <!-- Starfield background -->
+    <canvas id="starfield-canvas"></canvas>
+ 
+  <!-- main content -->
+    <h1 class="page-title">Scroll &darr;</h1>
+    <p>List of Some Space Mission</p>
+  
+    <div class="missions-container" id="missions"></div>
+  
+
+  <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span id="closeBtn" class="close">&times;</span>
+        <img id="modal-img" class="modal-img" />
+        <h2 id="modal-title"></h2>
+        <p id="modal-date"></p>
+        <p id="modal-crew"></p>
+        <p id="modal-desc"></p>
+      </div>
+    </div>
+  </div>
+
+<script src="mission.js"></script>
+
+
+</body>
+</html>

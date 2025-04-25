@@ -1,0 +1,386 @@
+<!--
+  🚀 Video Setup:
+  1. Download into `media/` folder as `milkyway.mp4` and `space_intro.mp4`.
+  2. Backup external URLs provided below if local file missing.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cosmic Gateway</title>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.min.js"></script>
+  <style>
+      :root {
+      --neon-primary: #6e0dd0;
+      --neon-secondary: #a29bfe;
+      --neon-terciary:#ffffff;
+      --text-light: #f8f9f9;
+      --bg-dark: #38393d;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 20, 0.3);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+    .navbar a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .navbar a:hover {
+      color: var(--neon-secondary);
+      text-shadow: 0 0 8px var(--neon-secondary);
+    }
+    .hero,
+    .intro-video-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      perspective: 1px;
+    }
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.8) contrast(1.4) saturate(1.2);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      text-align: center;
+      padding-top: 5rem;
+      padding: 0 1rem;
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 20px var(--neon-primary), 0 0 40px var(--neon-secondary);
+      margin-bottom: 1.5rem;
+    }
+    .btn {
+      padding: 0.8rem 2rem;
+      border: 2px solid var(--neon-secondary);
+      color: var(--neon-terciary);
+      background: rgba(0, 0, 20, 0.3);
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--neon-secondary);
+    }
+    .intro-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 20, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      z-index: 100;
+    }
+    .intro-overlay h2 {
+      font-size: 2.2rem;
+      color: var(--neon-secondary);
+      text-shadow: 0 0 12px var(--neon-secondary);
+      margin-bottom: 1rem;
+    }
+    .transition-section {
+      height: 20vh;
+      background: radial-gradient(circle, #150050, #000);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--neon-secondary);
+      font-size: 2rem;
+      text-shadow: 0 0 10px var(--neon-primary);
+      text-align: center;
+      padding: 1rem;
+    }
+    .info-section {
+      padding: 4rem 2rem;
+      background: rgba(0, 0, 20, 0.8);
+      display: flex;
+      justify-content: center;
+    }
+    .info-card {
+      max-width: 800px;
+      padding: 2rem;
+      background: rgba(11, 12, 16, 0.7);
+      border: 2px solid var(--neon-primary);
+      border-radius: 16px;
+      box-shadow: 0 0 20px var(--neon-primary);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .info-card:hover {
+      background: linear-gradient(135deg, rgba(11, 12, 16, 0.9), rgba(14, 14, 20, 0.7));
+      box-shadow: 0 0 25px var(--neon-secondary), 0 0 40px var(--neon-primary);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0, 0, 20, 0.8);
+    }
+    footer a {
+      color: var(--neon-secondary);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    .intro-video-section::before {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(11, 12, 16, 0.9), transparent);
+      z-index: 2;
+    }
+    #stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    .button-group {
+      color: whitesmoke;
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #typewriter-text {
+      font-size: 2.2rem;
+      min-height: 3rem;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        margin: 0.5rem auto;
+      }
+      .info-card {
+        padding: 1.5rem;
+      }
+      #typewriter-text {
+        font-size: 1.5rem;
+      }
+    }
+  
+  </style>
+  </style>
+</head>
+<body>
+ 
+  <!-- <canvas id="starfield"></canvas> -->
+
+  <!-- Hero Section -->
+  <section class="hero" data-aos="fade-in">
+    <video autoplay muted loop>
+      <source src="media/milkyway.mp4" type="video/mp4">
+      <source src="https://player.vimeo.com/external/236773225.sd.mp4?download=1" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <nav class="navbar">
+      <ul>
+        <h2><li><a href="timeline (1).html">Timeline</a></li></h2>
+        <h2><li><a href="discovery.html">Discoveries</a></li></h2>
+        <h2><li><a href="mission.html">Missions</a></li></h2>
+        <!-- <h2><li><a href="#astronomy">Astronomy Today</a></li></h2> -->
+       
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Welcome to the StellaVerse</h1>
+      <div class="button-group">
+        <h2><a href="explore.html" class="btn">Explore</a></h2>
+      </div>
+    </div>
+   
+  </section>
+
+
+  <!-- Intro Video Section -->
+  <section class="intro-video-section" data-aos="fade-in">
+    <video autoplay muted loop controls>
+      <source src="media/space_intro.mp4" type="video/mp4">
+      <source src="https://player.vimeo.com/external/258351648.sd.mp4?download=1" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="intro-overlay">
+      <h2>Journey Through Space</h2>
+      <!-- <p>From galaxies afar to the edge of our solar system, embark on an adventure that transcends imagination.</p> -->
+      <p>"Step beyond the skies and into the infinite. Space is a boundless frontier of stars,
+         <br>planets, galaxies,and cosmic mysteries waiting to be explored. 
+         <br>From the wonders of distant nebulae to the science of space travel,
+         <br>our journey through the universe is just beginning. 
+         <br>Discover the cosmos,where curiosity meets the unknown."</p>
+    </div>
+  </section>
+
+ 
+<!-- 
+  <footer>
+    © 2025 Cosmic Gateway | <a href="#timeline">Timeline</a> | <a href="#missions">Missions</a>
+  </footer> -->
+
+  <audio id="space-audio" loop>
+    <source src="media/space_ambience.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration:1200, once:true });
+    new Rellax('.rellax');
+
+    const canvas = document.getElementById("stars");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const stars = Array.from({ length: 200 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+      d: Math.random() * 1
+    }));
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#ffffff";
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = "#ffffff";
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+    function animateStars() {
+      stars.forEach(s => {
+        s.y += s.d;
+        if (s.y > canvas.height) s.y = 0;
+      });
+      drawStars();
+      requestAnimationFrame(animateStars);
+    }
+    animateStars();
+
+    const audio = document.getElementById('space-audio');
+    function toggleAudio() {
+      if (audio.paused) audio.play();
+      else audio.pause();
+    }
+    window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  loader.style.opacity = "0";
+  setTimeout(() => loader.style.display = "none", 800);
+});
+// const canvas = document.getElementById("starfield");
+//     const ctx = canvas.getContext("2d");
+
+//     let stars = [];
+//     const numStars = 500;
+
+//     function resizeCanvas() {
+//       canvas.width = window.innerWidth;
+//       canvas.height = window.innerHeight;
+//     }
+
+//     window.addEventListener("resize", resizeCanvas);
+//     resizeCanvas();
+
+//     for (let i = 0; i < numStars; i++) {
+//       stars.push({
+//         x: Math.random() * canvas.width,
+//         y: Math.random() * canvas.height,
+//         z: Math.random() * canvas.width
+//       });
+//     }
+
+//     function animateStars() {
+//       ctx.fillStyle = "black";
+//       ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+//       for (let i = 0; i < numStars; i++) {
+//         let star = stars[i];
+
+//         star.z -= 2;
+//         if (star.z <= 0) {
+//           star.z = canvas.width;
+//         }
+
+//         let k = 128.0 / star.z;
+//         let x = (star.x - canvas.width / 2) * k + canvas.width / 2;
+//         let y = (star.y - canvas.height / 2) * k + canvas.height / 2;
+
+//         if (x < 0 || x >= canvas.width || y < 0 || y >= canvas.height) {
+//           continue;
+//         }
+
+//         const size = (1 - star.z / canvas.width) * 3;
+//         const shade = 255 * (1 - star.z / canvas.width);
+
+//         ctx.beginPath();
+//         ctx.fillStyle = `rgb(${shade},${shade},${shade})`;
+//         ctx.arc(x, y, size, 0, 2 * Math.PI);
+//         ctx.fill();
+//       }
+
+//       requestAnimationFrame(animateStars);
+//     }
+
+//     animateStars();
+
+  </script>
+</body>
+</html>

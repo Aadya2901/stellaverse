@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discoveries</title>  <!-- fixed title tag -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+   
+    /* ===== Starfield Canvas ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #090909;
+      overflow: auto;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      padding-top: 80px;
+    }
+    canvas {
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 0;
+    }
+
+    /* ===== Container ===== */
+    #discoveries {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  width: 90%;
+  padding: 30px;
+  margin: auto;
+
+  background: rgba(0, 0, 0, 0.7); /* transparent black */
+  border-radius: 20px;
+
+  border: 2px solid #00fff0;
+  box-shadow: 0 0 20px #00fff0, 0 0 40px rgba(0, 255, 255, 0.3);
+  overflow-y: auto; 
+}
+
+
+    h1 {
+      font-size: 3rem; text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #00fff0, #3E98FF, #ff70a6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    /* ===== Filter Icons ===== */
+    .filters {
+      display: flex; justify-content: center;
+      gap: 20px; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-icon {
+      font-size: 3rem; padding: 40px;
+      border: 2px solid #1e870b; border-radius: 50%;
+      background: rgba(0, 0, 0, 0.3);
+      cursor: pointer; transition: all .3s;
+      box-shadow: 0 0 6px #00fff0;
+    }
+    .filter-icon:hover {
+      background: #035452; color: #000;
+      box-shadow: 0 0 12px #00fff0;
+    }
+
+    /* ===== Cards ===== */
+    .card {
+      display: none;
+      margin-bottom: 40px;
+      padding: 15px;
+      border-left: 4px solid #3E98FF;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+    .card.active { display: block; }
+    .card h3 {
+      color: #00fff0; font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+    .card p {
+      color: #ddd; line-height: 1.4;
+    } 
+    /* ===== UFO Popup ===== */
+    #ufo-popup {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      z-index: 2; width: 300px; padding: 20px;
+      background: rgba(30, 30, 40, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.5);
+      transition: transform .3s ease;
+    }
+    #ufo-popup.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    #ufo-popup::before {
+      content: '';
+      position: absolute; top: -20px; left: 50%;
+      transform: translateX(-50%);
+      width: 80px; height: 40px;
+      background: rgba(200, 200, 200, 0.2);
+      border-radius: 40% 40% 50% 50%;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+    #ufo-popup h2 {
+      margin-top: 40px; font-size: 1.4rem; color: #ffcc70;
+    }
+    #ufo-popup p {
+      margin: 10px 0 0; font-size: 1rem; color: #fff;
+    }
+    #ufo-popup .close-btn {
+      position: absolute; top: 10px; right: 12px;
+      cursor: pointer; color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="starfield"></canvas>
+
+  <section id="discoveries">
+    <h1>🌌 Space Discoveries</h1>
+    <div class="filters">
+      <div class="filter-icon" data-filter="missions">🚀</div>
+      <div class="filter-icon" data-filter="planets">🪐</div>
+      <div class="filter-icon" data-filter="galaxies">🌌</div>
+      <div class="filter-icon" data-filter="blackholes">🕳️</div>
+      <div class="filter-icon" data-filter="telescopes">🔭</div>
+    </div>
+   
+    
+
+    <!-- Cards -->
+    <div class="card missions">
+      <h3>Apollo 11</h3>
+      <p>1969: Neil Armstrong & Buzz Aldrin walk on the Moon, humanity's giant leap beyond Earth.</p>
+    </div>
+    <div class="card missions">
+      <h3>Voyager 1</h3>
+      <p>1977 launch, now the farthest human‑made object, carrying Earth’s message into interstellar space.</p>
+    </div>
+    <div class="card missions">
+      <h3>Mars Perseverance</h3>
+      <p>2021: Searching for ancient life on Mars and caching samples for future return missions.</p>
+    </div>
+
+    <div class="card planets">
+      <h3>Saturn’s Rings</h3>
+      <p>Shattered moons of ice and rock form these iconic, ever‑evolving rings around the gas giant.</p>
+    </div>
+    <div class="card planets">
+      <h3>Jupiter’s Storm</h3>
+      <p>A 300+‑year tempest, the Great Red Spot reveals the dynamic weather of the largest planet.</p>
+    </div>
+    <div class="card planets">
+      <h3>Venus's Rains acid</h3>
+      <p>Venus has sulfuric acid rain, but it never hits the ground.
+        Due to the extreme surface heat (over 460°C), the acid evaporates mid-fall.</p>
+    </div>
+
+    <div class="card galaxies">
+      <h3>Milky Way</h3>
+      <p>Our home: a spiral of 100 billion stars, full of mysteries across 100 000 light‑years.</p>
+    </div>
+    <div class="card galaxies">
+      <h3>Andromeda</h3>
+      <p>Nearest spiral galaxy, slowly drifting toward us for a collision in ~4 billion years.</p>
+    </div>
+    <div class="card galaxies">
+      <h3> NGC 1052-DF2 (The Ghost Galaxy)</h3>
+      <p>Almost no dark matter was detected in this galaxy (2018).</p>
+    </div>
+
+    <div class="card blackholes">
+      <h3>Sagittarius A*</h3>
+      <p>The supermassive hole anchoring our galaxy, with the mass of 4 million suns in a tiny volume.</p>
+    </div>
+    <div class="card blackholes">
+      <h3>Black Holes Can Produce Sound</h3>
+      <p>NASA detected sound waves from a black hole in the Perseus galaxy cluster.</p>
+    </div>
+    <div class="card blackholes">
+      <h3>Wandering Black Holes</h3>
+      <p> Black holes aren't always stationary — they can roam around space!</p>
+    </div>
+
+    <div class="card telescopes">
+      <h3>Hubble</h3>
+      <p>Since 1990, capturing breathtaking deep‑space images and reshaping our cosmic perspective.</p>
+    </div>
+    <div class="card telescopes">
+      <h3>James Webb</h3>
+      <p>Launched 2021, peering into the universe’s infancy, unveiling galaxies and stellar nurseries.</p>
+    </div>
+    <div class="card telescopes">
+      <h3>Spitzer Space Telescope</h3>
+      <p>Launched 2003,helped in discovering exoplanets and mapping dust clouds.</p>
+    </div>
+  </section>
+
+  <div id="ufo-popup">
+    <div class="close-btn">✖</div>
+    <h2 id="ufo-title"></h2>
+    <p id="ufo-desc"></p>
+  </div>
+
+  <script>
+    // Starfield
+    const c = document.getElementById('starfield'),
+          ctx = c.getContext('2d');
+    function resize() {
+      c.width = innerWidth; c.height = innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    const stars = [];
+    for(let i=0;i<600;i++){
+      stars.push({ x: Math.random()*c.width, y: Math.random()*c.height, z: Math.random()*c.width });
+    }
+    function animate(){
+      ctx.fillStyle='black';
+      ctx.fillRect(0,0,c.width,c.height);
+      for(const s of stars){
+        s.z -= 2;
+        if(s.z < 1) s.z = c.width;
+        const k = 128.0 / s.z;
+        const x = (s.x - c.width/2)*k + c.width/2;
+        const y = (s.y - c.height/2)*k + c.height/2;
+        const rad = (1 - s.z/c.width)*3;
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(255,255,255,${1 - s.z/c.width})`;
+        ctx.arc(x,y,rad,0,2*Math.PI);
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    // Filters & UFO Popup
+    const icons = document.querySelectorAll('.filter-icon'),
+          cards = document.querySelectorAll('.card'),
+          popup = document.getElementById('ufo-popup'),
+          titleEl = document.getElementById('ufo-title'),
+          descEl = document.getElementById('ufo-desc'),
+          summaries = {
+            missions:    "Missions are humanity’s footprints beyond Earth, from Apollo moon landings to robotic explorers.",
+            planets:     "Planets reveal diverse worlds: fiery, icy, and everything in between—potential homes for life.",
+            galaxies:    "Galaxies are cosmic islands of stars and dust, colliding and evolving over billions of years.",
+            blackholes:  "Black holes warp spacetime, trapping light and challenging our understanding of physics.",
+            telescopes:  "Telescopes are our eyes to the universe, from Hubble’s deep field to Webb’s infrared vision.",
+            theories:    "Theories like the Big Bang and relativity guide our quest to decipher the cosmos."
+          };
+
+    icons.forEach(icon=>{
+      icon.addEventListener('click',()=>{
+        const f = icon.dataset.filter;
+        cards.forEach(c=>c.classList.toggle('active', c.classList.contains(f)));
+        titleEl.textContent = icon.textContent + " " + f.charAt(0).toUpperCase()+f.slice(1);
+        descEl.textContent = summaries[f] || "";
+        popup.classList.add('show');
+      });
+    });
+    document.querySelector('.close-btn').addEventListener('click', ()=> {
+      popup.classList.remove('show');
+    });
+  </script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: #0b0c10;
+    color: #f8f9fa;
+    overflow-x: hidden;
+  }
+  
+  /* Navigation Bar */
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(11, 12, 16, 0.8);
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+  }
+  
+  .navbar ul {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  
+  .navbar a {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #17a2b8;
+  }
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    perspective: 1px;
+    transform-style: preserve-3d;
+  }
+  
+  .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+  }
+  
+  .hero-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 5rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    color: #f8f9fa;
+    text-shadow: 0 0 20px #6f42c1;
+    margin-bottom: 2rem;
+  }
+  
+  .btn-group {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 2rem;
+    border: 2px solid #17a2b8;
+    color: #17a2b8;
+    background: transparent;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .btn:hover {
+    background: #17a2b8;
+    color: #0b0c10;
+    box-shadow: 0 0 20px #17a2b8;
+  }
+  
+  /* Introduction Video Section */
+  .intro-video-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .intro-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+  ::contentReference[oaicite:0]{index=0}
+   
+  
