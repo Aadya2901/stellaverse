@@ -1,23 +1,26 @@
 <<<<<<< HEAD
 # StellaVerse
-# 🌌 StellaVerse — A Space-Themed Exploration Website
+🌌 StellaVerse — A Cosmic Exploration Website
+A captivating fan-made tribute site dedicated to space exploration and cosmic phenomena. This website offers immersive content on space missions, celestial bodies, and astronomical discoveries, all wrapped in a sleek, space-themed aesthetic.
 
-A stunning frontend-based space discovery experience, **StellaVerse** is your portal to explore humanity’s journey through the stars. This interactive and beautifully animated site presents historical timelines, cosmic discoveries, and milestone missions — all wrapped in an immersive dark cosmic theme.
 
----
+-----
 
-## 🎯 Project Objective
 
-To build a responsive, interactive, and visually mesmerizing space-themed website that educates and excites users about the wonders of space — using only frontend technologies.
+🎯 Project Objective
+To create a visually stunning, responsive, and interactive website that celebrates space exploration, featuring missions, space telescopes, and astronaut profiles with rich media and interactive elements.
 
----
+
+-----
+
 
 ## 🚀 Live Demo
 
-🔗 [Visit StellaVerse](https://your-username.github.io/stellaverse)  
-*(Replace with your live deployment URL)*
+🔗[StellaVerse Live Demo](https://stella-verse.vercel.app/)
 
----
+
+-----
+
 
 ## 🖥️ Tech Stack
 
@@ -26,7 +29,9 @@ To build a responsive, interactive, and visually mesmerizing space-themed websit
 - Smooth animations and scroll transitions
 - LocalStorage (if used for any optional interactive elements)
 
----
+
+-----
+
 
 ## 🌟 Features
 
@@ -55,14 +60,85 @@ To build a responsive, interactive, and visually mesmerizing space-themed websit
 - Star and planet elements that respond to mouse movement
 - Fully responsive design for desktop and mobile
 
----
+-----
+
 
 ## 📁 Folder Structure
 
+stellaverse/
+│
+├── Artemis I.jpg
+├── Curiosity_Rover.jpg
+├── ISS.jpg
+├── James_Webb.jpg
+├── apollo.jpg
+├── asi.webp
+├── astronaut.png
+├── astronaut2.png
+├── big_bang.jpg
+├── birth_of_solar_system.jpg
+├── chandrayaan3.jpg
+├── cnes.webp
+├── cnsa.webp
+├── discovery.html
+├── dlr.webp
+├── earth.jpg
+├── esa.webp
+├── first_human_in_space.jpg
+├── first_life_on_earth.jpg
+├── first_stars.jpg
+├── first_stars2.jpg
+├── future_missions.jpg
+├── galaxy_formation.jpg
+├── galaxy_formation2.jpg
+├── galelio_telescope.jpg
+├── head_bg.jpg
+├── hubble.jpg
+├── hubble_telescope.jpg
+├── index.css
+├── index.html
+├── index.js
+├── isro.webp
+├── james_webb_telescope.jpg
+├── jaxa.webp
+├── luna2.jpg
+├── mars_preserverance.jpg
+├── mission.css
+├── mission.html
+├── mission.js
+├── moon.png
+├── moon_impact.jpg
+├── moon_impact2.jpg
+├── moon_landing.jpg
+├── nasa.webp
+├── new-horizons.jpg
+├── planet.png
+├── planet2.png
+├── planet3.png
+├── roscosmos.webp
+├── sattelite.png
+├── skylab2.jpg
+├── solar_system.jpg
+├── space-x.webp
+├── spaceX.jpg
+├── spaceshuttle.png
+├── sputnik.jpg
+├── starry-night.png
+├── style.css
+├── tianwen-1.jpg
+├── timeline (1).css
+├── timeline (1).html
+├── timeline (1).js
+├── ufo.png
+├── voyager.jpg
+├── voyager1.jpg
+└── README.md
 
 > ✅ Each section has its own modular CSS and JS file for maintainability and reusability.
 
----
+
+-----
+
 
 ## ⚙️ Setup Instructions
 
@@ -85,17 +161,23 @@ Go to Settings > Pages
 
 Set the source branch to main and root directory to /
 
-Your site will be live at https://AANYARAI.github.io/StellaVerse
+Your site will be live at https://Aadya2901.github.io/StellaVerse
+
+
+------
 
 
 ## 👥 Contributors
 
 | Name                                                   | Role                                              |
 |--------------------------------------------------------|---------------------------------------------------|
-| [AANYARAI](https://github.com/AANYARAI)                | HomePage,Explore Page, Page Linking, Deployment   |
-| [ananyamishra13](https://github.com/ananyamishra13)    | Discovery Page                                    |
 | [Aadya2901](https://github.com/Aadya2901)              | Timeline Page                                     | 
 | [iam-anish15](https://github.com/iam-anish15)          | Mission Page                                      |
+| [ananyamishra13](https://github.com/ananyamishra13)    | Discovery Page                                    |
+| [AANYARAI](https://github.com/AANYARAI)                | HomePage, Page Linking, Deployment                |
+
+
+-----
 
 
 🤝 Contributing
