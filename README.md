@@ -13,7 +13,7 @@ To create a visually stunning, responsive, and interactive website that celebrat
 
 ## 🚀 Live Demo
 
-🔗 [StellaVerse Live Demo](https://Aadya2901.github.io/StellaVerse)
+🔗 [StellaVerse Live Demo](stella-verse.vercel.app)
 
 ---
 
