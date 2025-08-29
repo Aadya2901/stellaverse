@@ -60,6 +60,36 @@ To create a visually stunning, responsive, and interactive website that celebrat
 
 ---
 
+## 📸 Project Screenshots
+
+**Homepage**  
+![Homepage](homepage.jpg)
+
+**Homepage**  
+![Homepage](homepage2.jpg)
+
+**Timeline**  
+![Timeline](timeline.jpg)
+
+**Missions**  
+![Missions](missions.jpg)
+
+**Missions**  
+![Missions](missions2.jpg)
+
+**Missions**  
+![Missions](missions3.jpg)
+
+**Discoveries**  
+![Discoveries](discoveries.jpg)
+
+**Loading Icon**  
+![Loading Icon](loading.jpg)
+
+**Explore**  
+![Explore](explore.jpg)
+
+
 ## 📁 Folder Structure
 
 ```
