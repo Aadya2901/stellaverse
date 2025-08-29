@@ -75,10 +75,10 @@ To create a visually stunning, responsive, and interactive website that celebrat
 ![Missions](missions.jpg)
 
 **Missions**  
-![Missions](missions2.jpg)
+![Missions2](missions2.jpg)
 
 **Missions**  
-![Missions](missions3.jpg)
+![Missions3](missions3.jpg)
 
 **Discoveries**  
 ![Discoveries](discoveries.jpg)
